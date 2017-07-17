@@ -27,7 +27,7 @@ public class ConstantS {
             "         <vms:P2>%s</vms:P2>\n" +
             "         <vms:P3>bidv_4924dd9882a72c371770a8e9babfd825</vms:P3>\n" +
             "         <vms:P4>%s</vms:P4>\n" +
-            "         <vms:P5>POS|11007_hcm</vms:P5>\n" +
+            "         <vms:P5>POS|%s</vms:P5>\n" +
             "      </vms:value>\n" +
             "   </soap:Body>\n" +
             "</soap:Envelope>";
@@ -40,14 +40,14 @@ public class ConstantS {
             "         <vms:ParamSize>10</vms:ParamSize>\n" +
             "         <vms:P1>%s</vms:P1>\n" +
             "         <vms:P2>%s</vms:P2>\n" +
-            "         <vms:P3>%s</vms:P3>\n" +
+            "         <vms:P3>%d</vms:P3>\n" +
             "         <vms:P4>%s</vms:P4>\n" +
             "         <vms:P5>%s</vms:P5>\n" +
             "         <vms:P6>%s</vms:P6>\n" +
             "         <vms:P7>%s</vms:P7>\n" +
             "         <vms:P8>bidv_4924dd9882a72c371770a8e9babfd825</vms:P8>\n" +
             "         <vms:P9>%s</vms:P9>\n" +
-            "         <vms:P10>%s</vms:P10>\n" +
+            "         <vms:P10>POS|%s</vms:P10>\n" +
             "      </vms:ref>\n" +
             "   </soap:Body>\n" +
             "</soap:Envelope>";

@@ -34,6 +34,10 @@ public class MainFrame {
                             {
                                 lblLoginResult.setText("Get info: "+loginRes.getMaNvThu());
                             }
+                            else
+                            {
+                                myMainController.GetBill(loginRes,2);
+                            }
                         }
                     } catch (ParserConfigurationException e) {
                         e.printStackTrace();

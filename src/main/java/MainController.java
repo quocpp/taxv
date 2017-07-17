@@ -33,7 +33,7 @@ public class MainController {
         BigInteger bigInt = new BigInteger(1,digest);
         String hashpass = bigInt.toString(16);
         String req = String.format(myConstatnS.loginreq, user,hashpass,user);
-        String loginres = mySendReq.SendPostRequest(req);
+        String loginres = mySendReq.SendPostRequest(req,"value");
         String nsLogins = myXmlParser.GetTagValue(loginres,"ns:return");
         String [] nsLogin = nsLogins.split("\\|");
         LoginInfo myLoginInfo = new LoginInfo(nsLogin[0],nsLogin[1]);
@@ -47,9 +47,10 @@ public class MainController {
         String req = String.format(myConstatnS.loginInfo,
                                    iLoginInfo.getUserName(),
                                    iLoginInfo.getPassWord(),
-                iLoginInfo.getSerial());
+                iLoginInfo.getSerial(),
+                iLoginInfo.getUserName());
 
-        String loginres = mySendReq.SendPostRequest(req);
+        String loginres = mySendReq.SendPostRequest(req,"value");
         String nsLogins = myXmlParser.GetTagValue(loginres,"ns:return");
         String [] nsLogin = nsLogins.split("\\|");
         LoginInfo rLoginInfo = iLoginInfo;
@@ -60,19 +61,22 @@ public class MainController {
     }
 
     LoginInfo GetBill(LoginInfo iLoginInfo, int mode) throws IOException {
-         String req = String.format(myConstatnS.loginInfo,
-                                   iLoginInfo.getUserName(),
-                                   iLoginInfo.getPassWord(),
-                iLoginInfo.getSerial());
+        String numrec = "2";
 
-        String loginres = mySendReq.SendPostRequest(req);
+         String req = String.format(myConstatnS.GetBill,
+                 iLoginInfo.getMaNvThu(),
+                 iLoginInfo.getMaTinh(),
+                 mode,
+                 numrec,
+                 1,
+                 iLoginInfo.getUserName(),
+                iLoginInfo.getPassWord(),
+                iLoginInfo.getSerial(),
+                iLoginInfo.getUserName());
+
+        String loginres = mySendReq.SendPostRequest(req,"ref");
         String nsLogins = myXmlParser.GetTagValue(loginres,"ns:return");
-        String [] nsLogin = nsLogins.split("\\|");
-        LoginInfo rLoginInfo = iLoginInfo;
-        rLoginInfo.setMaNvThu(nsLogin[2]);
-        rLoginInfo.setInfores(nsLogin[0]);
-        rLoginInfo.setMaTinh(nsLogin[1]);
-        return rLoginInfo;
+        return new LoginInfo();
 
     }
 }

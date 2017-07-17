@@ -10,7 +10,7 @@ import java.net.URL;
  * Created by bean on 17/07/2017.
  */
 public class SendRequest {
-    public String SendPostRequest(String request) throws IOException {
+    public String SendPostRequest(String request,String type) throws IOException {
         String url = "http://unt.vnptsoftware.vn/a/services/SqlServices.SqlServicesHttpSoap12Endpoint";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -18,7 +18,7 @@ public class SendRequest {
         //add reuqest header
         con.setRequestMethod("POST");
         con.setRequestProperty("Accept-Language","en-US,en;q=0.5");
-        con.setRequestProperty("Content-Type","application/soap+xml;charset=UTF-8;action=\"urn:value\"");
+        con.setRequestProperty("Content-Type","application/soap+xml;charset=UTF-8;action=\"urn:"+type+ "\"");
         // Send post request
         con.setDoOutput(true);
         DataOutputStream wr;
